@@ -19,7 +19,8 @@
  <nav>
           <ul>
            <li><a href="index.html">Home</a></li>
-           <li><a href="test.html">Test</a></li>
+           <li><a href="PersonalTest.html">Personal Test</a></li>
+           <li><a href="SupervisedTest.html">Supervised Test</a></li>
            <li><a class="active" href="comments.php">Comments</a></li>
           </ul>
 </nav>
