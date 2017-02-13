@@ -99,10 +99,10 @@
   </QUESTION>
   <QUESTION>
     <TITLE>images/14.jpg</TITLE>
-    <CHOICE_ONE>nothing</CHOICE_ONE>
-    <CHOICE_TWO>45</CHOICE_TWO>
+    <CHOICE_ONE>45</CHOICE_ONE>
+    <CHOICE_TWO>nothing</CHOICE_TWO>
     <CHOICE_THREE>other</CHOICE_THREE>
-    <ANSWER>A</ANSWER>
+    <ANSWER>B</ANSWER>
   </QUESTION>
   <QUESTION>
     <TITLE>images/15.jpg</TITLE>
