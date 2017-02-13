@@ -61,6 +61,31 @@ ul > li > a:hover:not(.active) {
    background-color: darkgreen;
 }
 
+.button {
+
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.button1 {
+    background-color: darkgreen;
+    color: white;
+}
+
+.button1:hover {
+    background-color: green;
+    color: white;
+}
+
 h1{
    padding:10px;
    text-align:center;
@@ -129,3 +154,78 @@ background-repeat: norepeat;
 	text-align:center;
 }
 
+/*Quiz*/
+#title {
+    text-decoration: underline;
+}
+
+#quiz {
+    text-indent: 10px;
+    display:none;
+}
+
+#container_quiz {
+    width:70%;
+    margin:auto;
+    background-color: black;
+    border:4px solid green;
+    border-radius:5px;
+    color: #FFFFFF;
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.button2 {
+    border:4px solid;
+    border-radius:5px;
+    width: 40px;
+    padding-left:5px;
+    padding-right: 5px;
+    position: relative;
+    float:right;
+    background-color: #DCDCDC;
+    color: black;
+    margin: 0 2px 0 2px;
+}
+
+.button2.active {
+    background-color: #F8F8FF;
+    color: #525252;
+}
+
+button2 {
+    position: relative;
+    float:right;
+}
+.button2:hover {
+    background-color: black;
+    color: white;
+
+}
+
+.button2 a {
+    text-decoration: none;
+    color: darkred;
+}
+
+#prev {
+    display:none;
+    text-align:left;
+}
+
+#start {
+    display:none;
+    width: 90px;
+}
+
+.img_quiz{
+
+      display:inline-block;
+   float:left;
+   width: 200px;
+   height: 240px;
+   margin:10px;
+}
