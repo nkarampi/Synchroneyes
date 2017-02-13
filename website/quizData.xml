@@ -107,23 +107,23 @@
   <QUESTION>
     <TITLE>images/15.jpg</TITLE>
     <CHOICE_ONE>26</CHOICE_ONE>
-    <CHOICE_TWO>6 and possibly 2</CHOICE_TWO>
-    <CHOICE_THREE>2 and possibly 6</CHOICE_THREE>
+    <CHOICE_TWO>2 and possibly 6</CHOICE_TWO>
+    <CHOICE_THREE>6 and possibly 2</CHOICE_THREE>
     <ANSWER>A</ANSWER>
   </QUESTION>
   <QUESTION>
     <TITLE>images/16.jpg</TITLE>
-    <CHOICE_ONE>2 and possibly 4</CHOICE_ONE>
+    <CHOICE_ONE>42</CHOICE_ONE>
     <CHOICE_TWO>4 and possibly 2</CHOICE_TWO>
-    <CHOICE_THREE>42</CHOICE_THREE>
-    <ANSWER>C</ANSWER>
+    <CHOICE_THREE>2 and possibly 4</CHOICE_THREE>
+    <ANSWER>A</ANSWER>
   </QUESTION>
   <QUESTION>
     <TITLE>images/17.jpg</TITLE>
-    <CHOICE_ONE>purple line</CHOICE_ONE>
-    <CHOICE_TWO>purple and red line</CHOICE_TWO>
+    <CHOICE_ONE>purple and red line</CHOICE_ONE>
+    <CHOICE_TWO>purple line</CHOICE_TWO>
     <CHOICE_THREE>red line</CHOICE_THREE>
-    <ANSWER>B</ANSWER>
+    <ANSWER>A</ANSWER>
   </QUESTION>
   <QUESTION>
     <TITLE>images/18.jpg</TITLE>
