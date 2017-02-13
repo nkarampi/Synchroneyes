@@ -131,17 +131,18 @@ function markQuestion(element){
       		correct++;
           if(index<15){
           first15Correct++;
-        }
-        if (index>=15 && index<=17) {
-             if(choice == 'B'){
-               red++;
-             }
-              if(choice == 'C'){
-                green++;
-              }
-            }
-      	}
+         }
+
+      }
       	else{
+          if (index>=15 && index<=17) {
+               if(choice == 'B'){
+                 red++;
+               }
+                if(choice == 'C'){
+                  green++;
+                }
+              }
       		flag=0;
       	}
    }
