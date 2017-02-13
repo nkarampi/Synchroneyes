@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+ <meta name="description" content="Fan-based website about Red Hot Chili Peppers">
+    <meta name="keywords" content="Red Hot Chili Peppers, RHCP, rhcp, rock, music">
+    <meta name="author" content="Karampinas Nikolaos, Noulis Aristeidis, Tsikkinis Κonstantinos">
+    <link rel="icon" type="image/ico" href="/images/rhcp.ico">
+    <link rel="stylesheet" type="text/css" media="all" href="style2.css">
+    <title>RHCP Fans Page - Quiz</title>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script>
+     var pos = 0, find = 0, flag=0, movement=false, test, test_status, question,
+     choice, choices, chA, chB, chC,chCor, correct = 0, first15Correct = 0,
+     red = 0, green = 0, first_time = true, resultText1,resultText2;
+
+var positions = [];
+
+function randomize(){
+	var k = 0;
+	 while (k < 5) {
+         var randomnumber = Math.floor((Math.random() * 6) + 0);
+          if (positions.indexOf(randomnumber) == -1) {
+              positions[k] = randomnumber;
+              k++;
+          }
+     }
+}
+var size = 24;
+
+function start(){
+    document.getElementById("warning").setAttribute("style", "visibility:hidden;")
+    quiz_status.innerHTML = "Test Your Knowledge in RHCP";
+	  buttons_container.innerHTML = "<button  class='button button1 centerize' onclick='play()'>Play</button>";
+}
+
+function printResults(){
+
+    if(first15Correct >= 13){
+              resultText1=" Your colour vision is considered as adequate.";
+          }else if(first15Correct >= 10){
+              resultText1=" Your colour vision is considered as normal.";
+          }else{
+              resultText1=" Your colour vision is considered as deficient.";
+          }
+
+    quiz_question.innerHTML = "";
+    images_container.innerHTML = "";
+    quiz_status.innerHTML = "Test Completed";
+    quiz_status.innerHTML += "<h2>You got "+correct+" of "+size+" questions correct</h2>";
+    quiz_status.innerHTML += resultText1;
+    if(red>=2){
+            resultText2=" You might be red-colour blind.";
+            quiz_status.innerHTML += resultText2;
+        }
+    if(green>=2){
+            resultText2=" You might be green-colour blind.";
+            quiz_status.innerHTML += resultText2;
+        }
+    buttons_container.innerHTML= "<button class='button button1 ' onclick='play()'>Play Again</button>";
+		pos = 0;
+		correct = 0;
+    first15Correct = 0;
+    green = 0;
+    red = 0;
+}
+
+function play(){
+	if(pos<size){
+		index = pos;
+    loadDoc();
+	}else{
+		printResults();
+		return false;
+	}
+}
+
+
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      showQuestion(this);
+    }
+  };
+  xhttp.open("GET", "quizData.xml", true);
+  xhttp.send();
+}
+
+function showQuestion(xml){
+
+  var xmlDoc = xml.responseXML;
+  var i;
+  var x = xmlDoc.getElementsByTagName("QUESTION");
+  question = x[index].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue;
+	chA = x[index].getElementsByTagName("CHOICE_ONE")[0].childNodes[0].nodeValue;
+	chB = x[index].getElementsByTagName("CHOICE_TWO")[0].childNodes[0].nodeValue;
+	chC = x[index].getElementsByTagName("CHOICE_THREE")[0].childNodes[0].nodeValue;
+	chCor = x[index].getElementsByTagName("ANSWER")[0].childNodes[0].nodeValue;
+
+  quiz_status.innerHTML = "Question "+(pos+1)+" of "+size;
+  quiz_question.innerHTML  = "<img id ='img'>";
+  $("#img").attr("src",question);
+  warning.innerHTML = "nothing";
+	images_container.innerHTML = "<input type='radio' name='gen' value='male' id='A' onclick='markQuestion(id)'>"+chA;
+  images_container.innerHTML += "<input type='radio' name='gen' value='male' id='B' onclick='markQuestion(id)' >"+chB;
+  images_container.innerHTML += "<input type='radio' name='gen' value='male' id='C' onclick='markQuestion(id)' >"+chC;
+
+  //images_container.innerHTML += "<input type='image' class='fake_img' class='img_quiz' id='B' onclick='markQuestion(id)'>";
+//  $("#B").attr("src",chB);
+  buttons_container.innerHTML = "<button class='button button1' onclick='submitAnswer()'>Submit Answer</button>";
+	buttons_container.innerHTML += "<button class='button button1' onclick='move()'>Next Answer</button>";
+
+}
+
+function refreshImageBorder(){
+  document.getElementById('A').style.borderColor = "grey";
+  document.getElementById('B').style.borderColor = "grey";
+  document.getElementById('C').style.borderColor = "grey";
+
+}
+
+function markQuestion(element){
+  choice = element;
+  refreshImageBorder();
+  document.getElementById(choice).style.borderColor = "blue";
+	find=1;
+   if(first_time){
+      	if(choice == chCor){
+      		 flag=1;
+      		correct++;
+          if(index<15){
+          first15Correct++;
+        }
+        if (index>=15 && index<=17) {
+             if(choice == 'B'){
+               red++;
+             }
+              if(choice == 'C'){
+                green++;
+              }
+            }
+      	}
+      	else{
+      		flag=0;
+      	}
+   }
+}
+
+function submitAnswer(){
+
+    if(find==1)
+	   {
+       if(first_time){
+         movement=true;
+         if(flag == 1){
+          document.getElementById(choice).style.borderColor = "green";
+          warning.innerHTML = "Correct!";
+          document.getElementById("warning").setAttribute("style", "visibility:visible; ");
+
+	       }
+	       else{
+          document.getElementById(choice).style.borderColor = "red";
+          warning.innerHTML = "Wrong!";
+          document.getElementById("warning").setAttribute("style", "visibility:visible;");
+         }
+         first_time=false;
+       }else{
+         warning.innerHTML = "You have already submit an Answer!";
+         document.getElementById("warning").setAttribute("style", "visibility:visible; ");
+         document.getElementById("question_result").setAttribute("style", "visibility:hidden;");
+       }
+	  }
+	  else{
+        warning.innerHTML = "Please make a selection first!";
+        document.getElementById("warning").setAttribute("style", "visibility:visible;");
+    }
+
+}
+
+
+function move(){
+	if(movement)
+	{ pos++;
+	  find=0;
+	  flag=0;
+	  movement=false;
+    first_time = true;
+    document.getElementById("warning").setAttribute("style", "visibility:hidden;")
+	  play();
+	}else{
+    warning.innerHTML = "Please submit an answer!";
+    document.getElementById("warning").setAttribute("style", "visibility:visible;");
+	}
+}
+
+window.addEventListener("load", start, false);
+</script>
+  </head>
+<body id="news_b">
+<header>
+    <nav>
+          <ul>
+           <li><a href="index.html">Home</a></li>
+           <li><a class="active"  href="quiz.html">Quiz</a></li>
+          </ul>
+</nav>
+</header>
+  <div id="container_quiz">
+    <div id="quiz_status"> </div>
+    <div id="quiz_question"></div>
+     <div id="images_container"></div>
+      <div id="warning"></div>
+       <div id="buttons_container"></div>
+    </div>
+
+
+<footer class="forcefooter">© 2016. This page was created for academic purposes on the subject of 'Web Information Systems' at the Aristotle University of Thessaloniki.</footer>
+</body>
+</html>
