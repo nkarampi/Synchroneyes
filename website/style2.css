@@ -2,12 +2,21 @@
  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
+body{
+   background-color: #4d79ff;
+   padding: 0;
+   margin: 0;
+   text-align: center;
+}
+
+
 @media screen and (max-width: 600px){
     ul > li > a{float: none;}
     body {
-      background-color: black;
+      background-color: #4d79ff;
       margin:0;
    }
+
  .forcefooter{
 position: relative;
 }
@@ -53,12 +62,12 @@ ul > li > a{
 }
 
 ul > li > a:hover:not(.active) {
-   background-color:darkgreen;
+   background-color:#1a1aff;
    opacity: 0.6;
 }
 
 .active {
-   background-color: darkgreen;
+   background-color: #4747d1;
 }
 
 .button {
@@ -77,12 +86,12 @@ ul > li > a:hover:not(.active) {
 }
 
 .button1 {
-    background-color: darkgreen;
+    background-color: #202060;
     color: white;
 }
 
 .button1:hover {
-    background-color: green;
+    background-color: #4747d1;
     color: white;
 }
 
@@ -106,11 +115,8 @@ h4{
    text-align:center;
    color:#e6e6e6;
 }
-
-body{
-	margin:0;
-	background-image: url("images/bg2.jpg");
-background-repeat: norepeat;
+p{
+  text-align:left;
 }
 
 
@@ -126,7 +132,7 @@ background-repeat: norepeat;
 }
 
 
-#logo{ 
+#logo{
 	width: 128px;
 	height: 128px;
 }
@@ -139,7 +145,7 @@ background-repeat: norepeat;
 	width:70%;
     margin:auto;
     background-color: black;
-    border:4px solid white;
+    border:4px solid #4747d1;
     border-radius:5px;
     color: #FFFFFF;
     font-weight: bold;
@@ -150,9 +156,6 @@ background-repeat: norepeat;
 }
 
 
-.container{
-	text-align:center;
-}
 
 /*Quiz*/
 #title {
@@ -168,7 +171,7 @@ background-repeat: norepeat;
     width:70%;
     margin:auto;
     background-color: black;
-    border:4px solid green;
+    border:4px solid #2929a3;
     border-radius:5px;
     color: #FFFFFF;
     font-weight: bold;
@@ -176,39 +179,6 @@ background-repeat: norepeat;
     text-align: center;
     margin-top: 50px;
     margin-bottom: 100px;
-}
-
-.button2 {
-    border:4px solid;
-    border-radius:5px;
-    width: 40px;
-    padding-left:5px;
-    padding-right: 5px;
-    position: relative;
-    float:right;
-    background-color: #DCDCDC;
-    color: black;
-    margin: 0 2px 0 2px;
-}
-
-.button2.active {
-    background-color: #F8F8FF;
-    color: #525252;
-}
-
-button2 {
-    position: relative;
-    float:right;
-}
-.button2:hover {
-    background-color: black;
-    color: white;
-
-}
-
-.button2 a {
-    text-decoration: none;
-    color: darkred;
 }
 
 #prev {
@@ -219,13 +189,4 @@ button2 {
 #start {
     display:none;
     width: 90px;
-}
-
-.img_quiz{
-
-      display:inline-block;
-   float:left;
-   width: 200px;
-   height: 240px;
-   margin:10px;
 }

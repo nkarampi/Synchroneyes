@@ -1,40 +1,40 @@
 var index = 0, find = 0, flag=0, movement=false, test, test_status, question,
 choice, choices, chA, chB, chC,chCor, correct = 0, first15Correct = 0,
-red = 3, green = 0, first_time = true, resultText1,resultText2,resultText3, wrong;
+red = 0, green = 0, first_time = true, resultText1,resultText2,resultText3, wrong;
 
 var size = 24;
 var wrongAnswers = new Array(size) ;
 
 function start(){
 document.getElementById("warning").setAttribute("style", "visibility:hidden;")
-quiz_status.innerHTML = "Test a patient";
+quiz_status.innerHTML = "<h2>Test a patient</h2>";
 buttons_container.innerHTML = "<button  class='button button1 centerize' onclick='play()'>Run Test</button>";
 }
 
 function getCV(){
 if(first15Correct >= 13){
-       resultText1=" His/Her colour vision is considered as adequate.";
+       resultText1=" <h3>His/Her colour vision is considered as adequate.</h3>";
    }else if(first15Correct >= 10){
-       resultText1=" His/Her colour vision is considered as normal.";
+       resultText1=" <h3>His/Her colour vision is considered as normal.</h3>";
    }else{
-       resultText1=" His/Her colour vision is considered as deficient.";
+       resultText1=" <h3>His/Her colour vision is considered as deficient.</h3>";
    }
 }
 
 function printRG(){
 if(red>=2){
-     resultText2=" Patient might have protanopia or strong protanomalia.";
+     resultText2=" <h3>Patient might have protanopia or strong protanomalia.</h3>";
      quiz_status.innerHTML += resultText2;
  }
 if(green>=2){
-     resultText2=" Patient might have deuteranopia or strong deuteranomalia.";
+     resultText2=" <h3>Patient might have deuteranopia or strong deuteranomalia.</h3>";
      quiz_status.innerHTML += resultText2;
  }
 }
 
 function getPatientWrongQuestions(){
 if(correct!=size){
-quiz_status.innerHTML += "Patient answered wrong to questions: ";
+quiz_status.innerHTML += "<h3>Patient answered wrong to questions: </h3>";
        for(var i = 0; i < size; i++){
            if(wrongAnswers[i] !=-1){
                wrong= wrongAnswers[i]+1 ;
@@ -50,13 +50,13 @@ function printResults(){
 
 quiz_question.innerHTML = "";
 quiz_answers.innerHTML = "";
-quiz_status.innerHTML = "Test Completed";
-quiz_status.innerHTML += "<h2>Patient got "+correct+" of "+size+" questions correct</h2>";
+quiz_status.innerHTML = "<h2>Test Completed</h2>";
+quiz_status.innerHTML += "<h3>Patient got "+correct+" of "+size+" questions correct</h3>";
 getCV();
 quiz_status.innerHTML += resultText1;
 printRG();
 getPatientWrongQuestions();
-quiz_status.innerHTML += " If you have any doubts or questions you should get advice from an ophthalmologist.";
+quiz_status.innerHTML += " <h3>If there any doubts whether patient has deficient, <br /> other colour vision tests, including anomaloscope can be done.</h3>";
 buttons_container.innerHTML= "<button class='button button1 ' onclick='play()'>Test Again</button>";
 index = 0;
 correct = 0;
