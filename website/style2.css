@@ -17,7 +17,7 @@ body{
       margin:0;
    }
 
- .forcefooter{
+ .footer{
 position: relative;
 }
 }
@@ -27,17 +27,11 @@ footer {
    color: #e6e6e6;
    text-align: center;
    line-height: 3em;
-}
-
-.forcefooter {
-   position:absolute;
    bottom:0;
    width:100%;
-   background-color: #333;
-   color: #e6e6e6;
-   text-align: center;
-   line-height: 3em;
+      position:absolute;
 }
+
 
 
 /*Navigation*/

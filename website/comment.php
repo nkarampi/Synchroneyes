@@ -43,6 +43,6 @@
 	 </div>
 </div>
 
-<footer class="forcefooter">© 2016. This page was created for academic purposes on the subject of Software Technology at the Aristotle University of Thessaloniki.</footer>
+<footer class="footer">© 2016. This page was created for academic purposes on the subject of Software Technology at the Aristotle University of Thessaloniki.</footer>
 </body>
 </html>
