@@ -10,19 +10,19 @@ body{
 }
 
 
-@media screen and (max-width: 600px){
-    ul > li > a{float: none;}
-    body {
-      background-color: #4d79ff;
-      margin:0;
-   }
 
- .footer{
-position: relative;
-}
-}
 
 footer {
+   background-color: #333;
+   color: #e6e6e6;
+   text-align: center;
+   line-height: 3em;
+   width:100%;
+
+}
+
+
+.forcefooter {
    background-color: #333;
    color: #e6e6e6;
    text-align: center;
@@ -30,6 +30,7 @@ footer {
    bottom:0;
    width:100%;
       position:absolute;
+      padding: inherit;
 }
 
 
@@ -62,6 +63,29 @@ ul > li > a:hover:not(.active) {
 
 .active {
    background-color: #4747d1;
+}
+
+
+@media screen and (max-width: 600px){
+    ul > li > a{
+           float: none;
+     }
+    body {
+      background-color: #4d79ff;
+      margin:0;
+   }
+
+   .forcefooter {
+      background-color: #333;
+      color: #e6e6e6;
+      text-align: center;
+      line-height: 3em;
+      bottom:0;
+      width:100%;
+      padding: inherit;
+      position:relative;
+   }
+
 }
 
 .button {
@@ -172,7 +196,7 @@ p{
     display: inline-block;
     text-align: center;
     margin-top: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 250px;
 }
 
 #prev {
